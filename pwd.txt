@@ -1,0 +1,4 @@
+9rOX2tpf4tdq3J5i
+
+mysql://eSbrd5DXA4ZcApQ.root:9rOX2tpf4tdq3J5i@gateway01.ap-southeast-1.prod.aws.tidbcloud.com:4000/notice_board
+
