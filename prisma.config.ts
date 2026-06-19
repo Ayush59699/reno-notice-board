@@ -16,6 +16,8 @@ const getDatabaseUrl = () => {
 const cleanUrl = getDatabaseUrl();
 if (cleanUrl) {
   process.env.DATABASE_URL = cleanUrl;
+  const maskedUrl = cleanUrl.replace(/:([^:@]+)@/, ':****@');
+  console.log('Enforced DATABASE_URL:', maskedUrl);
 }
 
 export default defineConfig({
