@@ -13,12 +13,17 @@ const getDatabaseUrl = () => {
   return cleanUrl;
 };
 
+const cleanUrl = getDatabaseUrl();
+if (cleanUrl) {
+  process.env.DATABASE_URL = cleanUrl;
+}
+
 export default defineConfig({
   schema: "prisma/schema.prisma",
   migrations: {
     path: "prisma/migrations",
   },
   datasource: {
-    url: getDatabaseUrl(),
+    url: cleanUrl,
   },
 });
