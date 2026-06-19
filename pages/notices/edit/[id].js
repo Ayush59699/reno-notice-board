@@ -15,16 +15,12 @@ export default function EditNotice({ notice }) {
   const handleSubmit = async (formData) => {
     setIsSubmitting(true)
     setError(null)
-
     try {
       const response = await fetch(`/api/notices/${notice.id}`, {
         method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-
       if (response.ok) {
         router.push('/')
       } else {
@@ -47,34 +43,29 @@ export default function EditNotice({ notice }) {
 
       <div className="max-w-2xl mx-auto space-y-6">
         {/* Back Link */}
-        <Link 
-          href="/" 
-          className="inline-flex items-center text-xs font-semibold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
-        >
+        <Link href="/" className="inline-flex items-center text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">
           <ChevronLeft className="h-4 w-4 mr-1" />
           Back to notices
         </Link>
 
         {/* Title */}
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Edit Notice
-          </h1>
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 font-normal">
+          <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Edit Notice</h1>
+          <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
             Modify the details of the notice below. Changes will reflect instantly on the board.
           </p>
         </div>
 
         {/* Error Alert */}
         {error && (
-          <div className="bg-red-50 border border-red-200 text-red-800 dark:bg-red-950/20 dark:border-red-900 dark:text-red-400 p-4 rounded-xl flex items-center space-x-2 text-sm">
-            <AlertCircle className="h-4 w-4 flex-shrink-0" />
-            <span>{error}</span>
+          <div className="border border-red-200 dark:border-red-900/50 text-red-600 dark:text-red-400 p-3 rounded-lg flex items-center space-x-2 text-sm">
+            <AlertCircle className="h-3.5 w-3.5 flex-shrink-0" />
+            <span className="text-xs">{error}</span>
           </div>
         )}
 
         {/* Form Container */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm transition-colors">
+        <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 rounded-lg">
           <NoticeForm 
             initialData={notice}
             onSubmit={handleSubmit} 

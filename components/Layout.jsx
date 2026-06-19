@@ -4,18 +4,16 @@ import { PlusCircle, Megaphone } from 'lucide-react'
 
 export default function Layout({ children }) {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200">
-      <header className="sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800 transition-colors">
+    <div className="min-h-screen bg-white dark:bg-zinc-950 text-zinc-900 dark:text-zinc-100 flex flex-col font-sans transition-colors duration-200">
+      <header className="sticky top-0 z-40 bg-white/90 dark:bg-zinc-950/90 backdrop-blur-md border-b border-zinc-100 dark:border-zinc-900/60 transition-colors">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="flex items-center space-x-2.5 group">
-            <div className="bg-blue-600 text-white p-2 rounded-xl group-hover:bg-blue-700 transition-all duration-200 shadow-md shadow-blue-600/10">
-              <Megaphone className="h-5 w-5" />
-            </div>
+            <Megaphone className="h-4.5 w-4.5 text-zinc-900 dark:text-zinc-100" />
             <div>
-              <span className="text-lg font-bold tracking-tight bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300 bg-clip-text text-transparent">
+              <span className="text-sm font-semibold tracking-tight text-zinc-900 dark:text-zinc-100">
                 Reno Notice Board
               </span>
-              <span className="block text-[10px] uppercase tracking-widest text-slate-400 font-semibold leading-none mt-0.5">
+              <span className="block text-[9px] uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-medium leading-none mt-0.5">
                 Engineering
               </span>
             </div>
@@ -23,9 +21,9 @@ export default function Layout({ children }) {
 
           <Link
             href="/notices/new"
-            className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-xl shadow-lg shadow-blue-600/10 hover:shadow-blue-600/25 transition-all duration-200"
+            className="inline-flex items-center px-3.5 py-1.5 text-xs font-medium text-white dark:text-zinc-950 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 rounded-lg transition-all"
           >
-            <PlusCircle className="h-4 w-4 mr-2" />
+            <PlusCircle className="h-3.5 w-3.5 mr-1.5" />
             Add Notice
           </Link>
         </div>
@@ -35,14 +33,14 @@ export default function Layout({ children }) {
         {children}
       </main>
 
-      <footer className="bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 py-6 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-xs text-slate-400 dark:text-slate-500 space-y-2 sm:space-y-0">
+      <footer className="bg-white dark:bg-zinc-950 border-t border-zinc-100 dark:border-zinc-900/60 py-8 transition-colors">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-zinc-400 dark:text-zinc-500 space-y-2 sm:space-y-0">
           <div>
             &copy; {new Date().getFullYear()} Reno Platforms. Web Development Internship.
           </div>
           <div className="flex space-x-4">
             <span>Powered by Next.js & Prisma</span>
-            <span>&bull;</span>
+            <span>&middot;</span>
             <span>MySQL Connection</span>
           </div>
         </div>

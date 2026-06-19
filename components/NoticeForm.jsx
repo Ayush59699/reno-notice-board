@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useRouter } from 'next/router'
-import { Calendar, Tag, AlertTriangle, AlertCircle, FileText, Image as ImageIcon } from 'lucide-react'
+import { AlertCircle } from 'lucide-react'
 
 export default function NoticeForm({ initialData = null, onSubmit, isSubmitting }) {
   const router = useRouter()
@@ -70,9 +70,8 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
     <form onSubmit={handleSubmit} className="space-y-6">
       {/* Title Field */}
       <div>
-        <label htmlFor="title" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center">
-          <FileText className="h-4 w-4 mr-1.5 text-slate-400" />
-          Title <span className="text-red-500 ml-0.5">*</span>
+        <label htmlFor="title" className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase tracking-wider">
+          Title <span className="text-zinc-300 dark:text-zinc-600">*</span>
         </label>
         <input
           type="text"
@@ -81,10 +80,10 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
           value={formData.title}
           onChange={handleChange}
           placeholder="e.g. Mid-Semester Exam Schedule"
-          className={`w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all dark:text-slate-100 ${
+          className={`w-full px-0 py-2 bg-transparent border-0 border-b text-sm focus:outline-none focus:ring-0 transition-colors dark:text-zinc-100 placeholder:text-zinc-300 dark:placeholder:text-zinc-600 ${
             errors.title 
               ? 'border-red-300 dark:border-red-900 focus:border-red-500' 
-              : 'border-slate-200 dark:border-slate-800'
+              : 'border-zinc-200 dark:border-zinc-800 focus:border-zinc-900 dark:focus:border-zinc-100'
           }`}
         />
         {errors.title && (
@@ -97,21 +96,20 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
 
       {/* Body Field */}
       <div>
-        <label htmlFor="body" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center">
-          <FileText className="h-4 w-4 mr-1.5 text-slate-400" />
-          Body Content <span className="text-red-500 ml-0.5">*</span>
+        <label htmlFor="body" className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase tracking-wider">
+          Body Content <span className="text-zinc-300 dark:text-zinc-600">*</span>
         </label>
         <textarea
           id="body"
           name="body"
-          rows={6}
+          rows={5}
           value={formData.body}
           onChange={handleChange}
           placeholder="Write the details of the notice here..."
-          className={`w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all dark:text-slate-100 ${
+          className={`w-full px-0 py-2 bg-transparent border-0 border-b text-sm focus:outline-none focus:ring-0 transition-colors dark:text-zinc-100 placeholder:text-zinc-300 dark:placeholder:text-zinc-600 resize-none ${
             errors.body 
               ? 'border-red-300 dark:border-red-900 focus:border-red-500' 
-              : 'border-slate-200 dark:border-slate-800'
+              : 'border-zinc-200 dark:border-zinc-800 focus:border-zinc-900 dark:focus:border-zinc-100'
           }`}
         />
         {errors.body && (
@@ -126,8 +124,7 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Category */}
         <div>
-          <label htmlFor="category" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center">
-            <Tag className="h-4 w-4 mr-1.5 text-slate-400" />
+          <label htmlFor="category" className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase tracking-wider">
             Category
           </label>
           <select
@@ -135,7 +132,7 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
             name="category"
             value={formData.category}
             onChange={handleChange}
-            className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all dark:text-slate-100"
+            className="w-full px-0 py-2 bg-transparent border-0 border-b border-zinc-200 dark:border-zinc-800 text-sm focus:outline-none focus:ring-0 focus:border-zinc-900 dark:focus:border-zinc-100 transition-colors dark:text-zinc-100"
           >
             <option value="General">General</option>
             <option value="Exam">Exam</option>
@@ -145,9 +142,8 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
 
         {/* Publish Date */}
         <div>
-          <label htmlFor="publishDate" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center">
-            <Calendar className="h-4 w-4 mr-1.5 text-slate-400" />
-            Publish Date <span className="text-red-500 ml-0.5">*</span>
+          <label htmlFor="publishDate" className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase tracking-wider">
+            Publish Date <span className="text-zinc-300 dark:text-zinc-600">*</span>
           </label>
           <input
             type="date"
@@ -155,10 +151,10 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
             name="publishDate"
             value={formData.publishDate}
             onChange={handleChange}
-            className={`w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all dark:text-slate-100 ${
+            className={`w-full px-0 py-2 bg-transparent border-0 border-b text-sm focus:outline-none focus:ring-0 transition-colors dark:text-zinc-100 ${
               errors.publishDate 
                 ? 'border-red-300 dark:border-red-900 focus:border-red-500' 
-                : 'border-slate-200 dark:border-slate-800'
+                : 'border-zinc-200 dark:border-zinc-800 focus:border-zinc-900 dark:focus:border-zinc-100'
             }`}
           />
           {errors.publishDate && (
@@ -172,36 +168,35 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
 
       {/* Priority Selection */}
       <div>
-        <span className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2.5 flex items-center">
-          <AlertTriangle className="h-4 w-4 mr-1.5 text-slate-400" />
+        <span className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-3 uppercase tracking-wider">
           Priority
         </span>
         <div className="flex items-center space-x-6">
-          <label className="flex items-center space-x-2.5 cursor-pointer group">
+          <label className="flex items-center space-x-2 cursor-pointer group">
             <input
               type="radio"
               name="priority"
               value="Normal"
               checked={formData.priority === 'Normal'}
               onChange={handleChange}
-              className="h-4 w-4 text-blue-600 border-slate-300 focus:ring-blue-500/20 dark:border-slate-800"
+              className="h-3.5 w-3.5 text-zinc-900 dark:text-zinc-100 border-zinc-300 dark:border-zinc-700 focus:ring-0 focus:ring-offset-0"
             />
-            <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors">
+            <span className="text-sm text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
               Normal
             </span>
           </label>
 
-          <label className="flex items-center space-x-2.5 cursor-pointer group">
+          <label className="flex items-center space-x-2 cursor-pointer group">
             <input
               type="radio"
               name="priority"
               value="Urgent"
               checked={formData.priority === 'Urgent'}
               onChange={handleChange}
-              className="h-4 w-4 text-red-600 border-slate-300 focus:ring-red-500/20 dark:border-slate-800"
+              className="h-3.5 w-3.5 text-zinc-900 dark:text-zinc-100 border-zinc-300 dark:border-zinc-700 focus:ring-0 focus:ring-offset-0"
             />
-            <span className="text-sm font-semibold text-red-600 dark:text-red-400 group-hover:text-red-700 dark:group-hover:text-red-300 transition-colors flex items-center">
-              Urgent Notice
+            <span className="text-sm font-medium text-zinc-600 dark:text-zinc-400 group-hover:text-zinc-900 dark:group-hover:text-zinc-100 transition-colors">
+              Urgent
             </span>
           </label>
         </div>
@@ -209,9 +204,8 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
 
       {/* Optional Image URL */}
       <div>
-        <label htmlFor="image" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center">
-          <ImageIcon className="h-4 w-4 mr-1.5 text-slate-400" />
-          Image URL <span className="text-xs text-slate-400 font-normal ml-1.5">(Optional)</span>
+        <label htmlFor="image" className="block text-xs font-medium text-zinc-500 dark:text-zinc-400 mb-1.5 uppercase tracking-wider">
+          Image URL <span className="text-zinc-300 dark:text-zinc-600 normal-case text-[10px] tracking-normal">(optional)</span>
         </label>
         <input
           type="text"
@@ -220,10 +214,10 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
           value={formData.image}
           onChange={handleChange}
           placeholder="https://example.com/image.jpg"
-          className={`w-full px-4 py-2.5 bg-white dark:bg-slate-900 border rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all dark:text-slate-100 ${
+          className={`w-full px-0 py-2 bg-transparent border-0 border-b text-sm focus:outline-none focus:ring-0 transition-colors dark:text-zinc-100 placeholder:text-zinc-300 dark:placeholder:text-zinc-600 ${
             errors.image 
               ? 'border-red-300 dark:border-red-900 focus:border-red-500' 
-              : 'border-slate-200 dark:border-slate-800'
+              : 'border-zinc-200 dark:border-zinc-800 focus:border-zinc-900 dark:focus:border-zinc-100'
           }`}
         />
         {errors.image && (
@@ -235,11 +229,11 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
       </div>
 
       {/* Action Buttons */}
-      <div className="pt-4 border-t border-slate-100 dark:border-slate-800 flex justify-end space-x-3">
+      <div className="pt-6 flex justify-end space-x-3">
         <button
           type="button"
           onClick={() => router.push('/')}
-          className="px-5 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-xl transition-colors"
+          className="px-4 py-2 text-xs font-medium text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors"
           disabled={isSubmitting}
         >
           Cancel
@@ -247,11 +241,11 @@ export default function NoticeForm({ initialData = null, onSubmit, isSubmitting 
         <button
           type="submit"
           disabled={isSubmitting}
-          className="px-5 py-2.5 text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 active:bg-blue-800 rounded-xl shadow-lg shadow-blue-600/10 hover:shadow-blue-600/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center"
+          className="px-5 py-2 text-xs font-medium text-white dark:text-zinc-950 bg-zinc-900 hover:bg-zinc-800 dark:bg-zinc-100 dark:hover:bg-zinc-200 rounded-lg disabled:opacity-40 disabled:cursor-not-allowed transition-all flex items-center"
         >
           {isSubmitting ? (
             <>
-              <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+              <svg className="animate-spin -ml-1 mr-2 h-3.5 w-3.5" fill="none" viewBox="0 0 24 24">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
               </svg>

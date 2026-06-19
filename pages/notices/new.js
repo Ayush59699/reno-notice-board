@@ -14,16 +14,12 @@ export default function NewNotice() {
   const handleSubmit = async (formData) => {
     setIsSubmitting(true)
     setError(null)
-
     try {
       const response = await fetch('/api/notices', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-
       if (response.ok) {
         router.push('/')
       } else {
@@ -46,22 +42,15 @@ export default function NewNotice() {
 
       <div className="max-w-2xl mx-auto space-y-6">
         {/* Back Link */}
-        <Link 
-          href="/" 
-          className="inline-flex items-center text-xs font-semibold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
-        >
+        <Link href="/" className="inline-flex items-center text-xs font-medium text-zinc-500 hover:text-zinc-900 dark:hover:text-zinc-300 transition-colors">
           <ChevronLeft className="h-4 w-4 mr-1" />
           Back to notices
         </Link>
 
         {/* Title */}
         <div>
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Create New Notice
-          </h1>
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400 font-normal">
-            Fill out the form below to publish a notice to the campus notice board.
-          </p>
+          <h1 className="text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100">Create New Notice</h1>
+          <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">Fill out the form below to publish a notice to the campus notice board.</p>
         </div>
 
         {/* Error Alert */}
@@ -73,11 +62,8 @@ export default function NewNotice() {
         )}
 
         {/* Form Container */}
-        <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800/80 p-6 rounded-2xl shadow-sm transition-colors">
-          <NoticeForm 
-            onSubmit={handleSubmit} 
-            isSubmitting={isSubmitting} 
-          />
+        <div className="bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-zinc-800 p-6 rounded-lg">
+          <NoticeForm onSubmit={handleSubmit} isSubmitting={isSubmitting} />
         </div>
       </div>
     </Layout>
